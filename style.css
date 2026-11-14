@@ -7,7 +7,7 @@
 }
 
 :root {
-    --bg: #09090f;
+    --bg: #080808;
     --card: #15151f;
     --accent: #7dd3fc;
     --white: #f5f3ff;
@@ -15,9 +15,29 @@
 }
 
 body {
-    background: var(--bg);
+    background:
+        linear-gradient(rgba(8, 8, 8, 0.72), rgba(8, 8, 8, 0.8)),
+        url("assets/background.jpg") center/cover no-repeat fixed;
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* NAVBAR */
